@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>엄마 생일 축하해 ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="card" id="card">
+      <div class="front">
+        <div class="heart">💌</div>
+        <h1>엄마에게</h1>
+        <p>열어봐 ❤️</p>
+        <button onclick="openLetter()">편지 열기</button>
+      </div>
+
+      <div class="letter" id="letter">
+        <h1>🎂 엄마 생일 축하해 🎂</h1>
+
+        <p>
+          엄마, 생일 진짜 진짜 축하해! ❤️
+        </p>
+
+        <p>
+          항상 나를 위해서 챙겨주고,
+          옆에서 응원해줘서 너무 고마워.
+        </p>
+
+        <p>
+          앞으로도 건강하고 행복한 일만 가득했으면 좋겠어.
+        </p>
+
+        <p class="love">
+          엄마 사랑해 ❤️
+        </p>
+
+        <p class="from">
+          - 아들 막심이 -
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="hearts"></div>
+
+  
+
+<script>
+function openLetter() {
+  const front = document.querySelector(".front");
+  const letter = document.getElementById("letter");
+
+  front.style.display = "none";
+  letter.style.display = "block";
+
+  createHearts();
+}
+
+function createHearts() {
+  for (let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      const heart = document.createElement("div");
+
+      heart.classList.add("floating-heart");
+
+      const hearts = ["❤️", "💗", "💖", "💕", "🎈", "🌷"];
+
+      heart.innerHTML =
+        hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 25 + 20 + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }, i * 150);
+  }
+}
+</script>
+</body>
+</html>
